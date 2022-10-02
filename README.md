@@ -30,11 +30,7 @@ git clone https://github.com/<your-github-username>/hacktoberfest2022.git
 git checkout -b <your-new-branch-name>
 ```
 
-4. Make changes in the repository
-
-    - To make your contribution to the project, add a new program, or improve an existing one in any language of your choice.
-    - Programs should be placed in their respective language folders.
-    - In the end add your name to the `CONTRIBUTORS.md` file.
+4. Make changes in the repository (refer to the [Contributing Guidelines](CONTRIBUTING.md) for information on contributions before making changes)
 
 5. Stage and commit your changes
 
