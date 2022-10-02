@@ -1,10 +1,19 @@
 # Hacktoberfest 2022
 
-This repository is for Hacktoberfest 2022. If you are looking for Hacktoberfest 2021, please visit [this repository](https://github.com/iiitu-force/Hacktoberfest-2021).
+<p align="center">
+<img src="./images/force-logo.png" width="313.33" height="189.06" alt="Hacktoberfest 2022" />
+<img src="./images/banner.jpeg" width="400" height="200" alt="Hacktoberfest 2022" />
+</p>
+
+This repository is for open source contributions to [FORCE-IIITU](https://force-iiitu.netlify.app/) for Hacktoberfest 2022.
+Participate in Hacktoberfest 2022 by contributing to this repository.
+All you have to do is raise a PR and get it merged.
 
 ## What is Hacktoberfest?
 
 Hacktoberfest is a month-long celebration of open source software run by DigitalOcean in partnership with GitHub and Twilio. Hacktoberfest is open to everyone in our global community! Four quality pull requests must be submitted to public GitHub repositories. You can sign up anytime between October 1 and October 31.
+
+---
 
 ## How to contribute?
 
@@ -51,6 +60,15 @@ git push -u origin <your-new-branch-name>
 
 10. Celebrate - you've done your first pull request!!
 
+---
+
 ## How to get started with Git and GitHub?
 
 If you are new to Git and GitHub, you can check out this [Git and GitHub tutorial](https://www.digitalocean.com/community/tutorial_series/an-introduction-to-git) by DigitalOcean.
+
+---
+
+### Note
+
+-   This repository is open to all members of the GitHub community. Any member can contribute to this project without being a collaborator.
+-   This repository is for Hacktoberfest 2022. If you are looking for Hacktoberfest 2021, please visit [this repository](https://github.com/iiitu-force/Hacktoberfest-2021).
