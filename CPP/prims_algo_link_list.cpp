@@ -30,7 +30,7 @@ struct AdjListNode* newAdjListNode(int dest, int weight)
 	return newNode;
 }
 
-// A utility function that creates a graph of V vertices
+// A utility function that creates a graph of V vertices.
 struct Graph* createGraph(int V)
 {
 	struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
