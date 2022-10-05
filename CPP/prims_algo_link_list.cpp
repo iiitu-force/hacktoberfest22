@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-// A structure to represent a node in adjacency list
+// A structure to represent a node in adjacency list ,
 struct AdjListNode {
 	int dest;
 	int weight;
