@@ -1,0 +1,53 @@
+class Solution {
+public:
+    
+    int helper(vector<int>&nums,int index, vector<int>&v)
+    {
+        if(index >= nums.size())
+        {
+            return 0;
+        }
+        
+        if(v[index] != -1)
+        {
+            return v[index];
+        }
+        
+        int x = helper(nums,index+2,v);
+        int y = helper(nums,index+3,v);
+        
+        v[index] = max(x,y) + nums[index];
+        
+        return max(x,y) + nums[index];
+    }
+    int rob(vector<int>& nums) {
+        
+        int n = nums.size();
+        int sol[n + 1];
+        
+        if(n == 0)
+        {
+            return 0;
+        }
+        if(n == 1)
+        {
+            return nums[0];
+        }
+        
+        sol[0] = nums[0];
+        for(int  i = 1;i< n; i++)
+        {
+            if(i != 1)
+            {
+                sol[i] = max(sol[i-1], sol[i-2] + nums[i]);
+            }
+            else
+            {
+                sol[i] = max(sol[i-1], nums[i]);
+            }
+        }
+        
+        return sol[n-1];
+        
+    }
+};
