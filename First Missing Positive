@@ -1,0 +1,17 @@
+    int firstMissingPositive(vector<int>& nums) {
+        unordered_map<int,int>mp;
+        for(int i=0;i<nums.size();++i){
+            if(nums[i]>0)
+                mp[nums[i]]=1; 
+        }
+        if(mp.begin()==mp.end())
+            return 1;
+        
+        int k=1;
+        for(auto it:mp){
+            if(mp.find(k)==mp.end())
+                return k;
+            k++;
+        }
+        return k;
+    }
