@@ -1,0 +1,22 @@
+    bool equalFrequency(string word) {
+        unordered_map<char,int>mp;
+        vector<int>vec;
+        
+        if(word.size()==1 || word.size()==2)
+            return true;
+        
+        for(int i =0; i<word.size();i++){
+            mp[word[i]]++;
+        }
+        for(auto it: mp){
+           vec.push_back(it.second);
+        }
+        sort(vec.begin(),vec.end());
+        int n = vec.size();
+        if(n == 1) return true;
+        
+        if(vec[0] == vec[n-1] && vec[0] == 1) return true;
+        else if(vec[0] == vec[n-2] && vec[n-1] - vec[0] == 1) return true;
+        else if(vec[0] == 1 && vec[1] == vec[n-1]) return true;
+        return false;
+    }
