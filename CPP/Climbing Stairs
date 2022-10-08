@@ -1,0 +1,36 @@
+class Solution {
+public:
+    
+    int helper(int x, vector<int>&input)
+    {
+        if(x == 0)
+        {
+            return 1;
+        }
+        if(x <0)
+        {
+            return 0;
+        }
+        if(input[x] != -1)
+        {
+            return input[x];
+        }
+
+         int y = helper(x-2,input);
+        int m = helper(x-1,input);
+        
+        int ans = m+y;
+        input[x] = ans;
+        return ans;
+    }
+    int climbStairs(int n) {
+        
+        vector<int>v;
+        
+        for(int i = 0;i <= n; i++)
+        {
+            v.push_back(-1);
+        }
+        return helper(n,v);
+    }
+};
