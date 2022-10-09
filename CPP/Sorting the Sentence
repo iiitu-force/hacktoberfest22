@@ -1,0 +1,24 @@
+    string sortSentence(string s) {
+        int n = s.size();
+        map <char, string> mp; 
+        string ans;
+        string temp;
+        for(int i = 0; i < n; i++){
+            if(s[i] == ' '){
+                 int k = temp.size();
+                string u = temp.substr(0,k-1);
+                mp[temp[k-1]] = u;
+                temp = "";
+            }
+            else{
+                temp.push_back(s[i]);
+            }
+        }
+        int l = temp.size();
+        mp[temp[l-1]] = temp.substr(0,l-1);
+        for(auto p: mp){
+            ans = ans + p.second + ' ';
+        }
+        int a = ans.size();
+        return ans.substr(0,a-1);
+    }
