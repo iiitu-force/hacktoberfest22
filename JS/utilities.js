@@ -155,3 +155,57 @@ export const sumOfPrimeFactors = (num) => {
     let factors = primeFactors(num);
     return factors.reduce((a, b) => a + b, 0);
 }
+
+// Some useful functions for the DOM
+
+// The function to get the element by query selector
+
+export const $ = (selector) => document.querySelector(selector);
+
+// The function to get the element by query selector all
+
+export const $$ = (selector) => document.querySelectorAll(selector);
+
+// The function to create an element
+
+export const createElement = (tag, props, ...children) => {
+	const element = document.createElement(tag);
+	Object.keys(props).forEach((key) => (element[key] = props[key]));
+	if (children.length > 0) {
+		children.forEach((child) => {
+			if (typeof child === "string") {
+				child = document.createTextNode(child);
+			}
+			element.appendChild(child);
+		});
+	}
+	return element;
+};
+
+// The function to create an element with an id and a class and a style and a text
+
+export const createIdClassStyleTextElement = (
+	tag,
+	id,
+	className,
+	style,
+	text,
+	props,
+	...children
+) => {
+	const element = document.createElement(tag);
+	element.className = className;
+	element.id = id;
+	element.style = style;
+	element.textContent = text;
+	Object.keys(props).forEach((key) => (element[key] = props[key]));
+	if (children.length > 0) {
+		children.forEach((child) => {
+			if (typeof child === "string") {
+				child = document.createTextNode(child);
+			}
+			element.appendChild(child);
+		});
+	}
+	return element;
+};
