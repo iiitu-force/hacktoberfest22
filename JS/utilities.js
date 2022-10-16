@@ -209,3 +209,58 @@ export const createIdClassStyleTextElement = (
 	}
 	return element;
 };
+
+
+// Some useful functions for the console
+
+// The function to log a message
+
+export const log = (message) => console.log(message);
+
+// The function to log an error
+
+export const error = (message) => console.error(message);
+
+// The function to log a warning
+
+export const warn = (message) => console.warn(message);
+
+// The function to log an info
+
+export const info = (message) => console.info(message);
+
+// The function to log a table
+
+export const table = (message) => console.table(message);
+
+// The function to log a group
+
+export const group = (message) => console.group(message);
+
+// The function to log a time
+
+export const time = (message) => console.time(message);
+
+// The function to log a trace
+
+export const trace = (message) => console.trace(message);
+
+// The function to log a clear
+
+export const clear = () => console.clear();
+
+// The function to log a count
+
+export const count = (message) => console.count(message);
+
+// The function to log a dir
+
+export const dir = (message) => console.dir(message);
+
+// The function to log a assert
+
+export const assert = (message) => console.assert(message);
+
+// The function to log a profile
+
+export const profile = (message) => console.profile(message);
