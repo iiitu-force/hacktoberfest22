@@ -1,0 +1,58 @@
+struct Node
+{
+    Node *links[26];
+    bool isEnd;
+    Node()
+    {
+        for(int i = 0;  i < 26;  i++)
+            links[i] = NULL;
+        isEnd = false;
+    }
+};
+class Solution{
+    public:
+    Node *root = new Node();
+    void createTrie(string word)
+    {
+        Node *node = root;
+        for(int i = 0;  i < word.length();  i++)
+        {
+            int index = word[i]-'a';
+            if(node->links[index] == NULL)
+                node->links[index] = new Node();
+            node = node->links[index];
+        }
+        node->isEnd = true;
+    }
+    bool search(string word)
+    {
+        Node *node = root;
+        for(int i = 0;  i < word.length();  i++)
+        {
+            int index = word[i]-'a';
+            if(!node->links[index])
+                return false;
+            node = node->links[index];
+        }
+        return (node != NULL  and  node->isEnd);
+    }
+    bool solve(string str)
+    {
+        int n = str.length();
+        if(n == 0)
+            return true;
+            
+        for(int i = 1;  i <= n;  i++)
+        {
+            if(search(str.substr(0, i))  and  solve(str.substr(i, n-i)))
+                return true;
+        }
+        return false;
+    }
+    int wordBreak(string str, vector<string> &vec) 
+    {
+        for(int i = 0;  i < vec.size();  i++)
+            createTrie(vec[i]);
+        return solve(str);
+    }
+};
