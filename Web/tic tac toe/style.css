@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+/* style sheets ko thoda order ma rakhna chaiye */
+
+nav{
+    background-color: purple;
+    color: white;
+    height: 65px; 
+    /* height set krunga iski hit and trial or u can do by inspect */
+     font-size: 27px;
+     display: flex;
+     align-items: center;
+     padding: 0 12px;
+     font-family: 'Roboto', sans-serif;
+
+}
+
+nav ul{
+    list-style: none;
+}
+.gameContainer{
+    /* background-color: yellow;  */
+    display: flex;
+   justify-content: center;
+   margin-top: 50px;
+   position: relative;
+
+
+}
+.container{
+    /* yeh grid  hoga */
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+  /* 3 x 3 ki grid bnadi */
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}.box{
+    border: 2px solid black;
+    /* border bna diya */
+    font-size: 8vw;
+    cursor: pointer;
+    /* fontsize set kro by inspect and better to give it in vw so tht responsive ho jab hover kra toh color thods change krdo */
+    /* box ko flex box bna kr centering krdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flexbox use kiya kro its ur own sword */
+
+}
+.box:hover{
+    background-color: rgb(201, 186, 216);
+}
+.info{
+    font-size: 22px;
+
+}
+.gameInfo{
+    padding: 0 34px;
+    /* padding andar se milti h and margin bhar se
+     */
+     font-family: 'Baloo Bhaina 2', cursive;
+}
+.gameInfo h1{
+    font-size: 2.5rem;
+}
+.imgbox img{
+    /* display: none; */
+    width: 0;
+    transition: width 1s ease-in-out;
+
+}
+/* kuch utility classes likhunga to make border other then  between zero  yeh styles humko box pr apply krnaha not on span*/
+.br-0{
+    border-right: 0;
+
+}
+.bl-0{
+    border-left: 0;
+    
+}
+.bt-0{
+    border-top: 0;
+    
+}
+.bb-0{
+    border-bottom: 0;
+    
+}
+.btn {
+    /* inspect krke on the  moment lga do css then copy krke daldo  */
+    margin: 0 23px;
+    padding: 1px 18px;
+    background-color: rgb(236, 204, 236);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Baloo Bhaina 2 ';
+    font-size: 15px;
+    font-weight: bolder;
+}
+.line{
+    background-color: black;
+    width: 0vw;
+    height: 3px;
+    /* grid ka size 10vw * 3 hai */ 
+    /* now this line is inside gamecontainer so we will do game container positionrealtive */
+    position: absolute;
+    background-color: #911d91;
+    transition: width 1s ease-in-out;
+
+}
+@media screen  and (max-width :950px){
+    .gameContainer{
+        flex-wrap: wrap;
+
+    }
+    .gameInfo{
+        margin-top: 34px;
+
+    }
+    .gameInfo h1{
+        font-size: 1.5rem;
+}
+    .container{
+        display: grid;
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+
+}
