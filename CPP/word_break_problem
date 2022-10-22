@@ -1,0 +1,19 @@
+class Solution
+{
+public:
+    int wordBreak(string str, vector<string> &vec) 
+    {
+        int n = str.length();
+        int dp[n+1] = {0};
+        dp[0] = 1;
+        for(int i = 1;  i <= n;  i++)
+        {
+            for(int j = 0;  j < i;  j++)
+            {
+                if(find(vec.begin(), vec.end(), str.substr(j, i-j))  !=  vec.end())
+                    dp[i] += dp[j];
+            }
+        }
+        return dp[n];
+    }
+};
