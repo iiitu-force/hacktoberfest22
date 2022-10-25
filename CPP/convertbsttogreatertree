@@ -1,0 +1,22 @@
+class Solution { private:
+    int sum=0;
+public:
+    int help(TreeNode* &root){
+        if(root==NULL){
+            return 0;
+        }
+        
+     help(root->right);
+         sum+=root->val;
+          root->val=sum;
+     help(root->left);
+       
+       
+      
+        return root->val;
+    }
+    TreeNode* convertBST(TreeNode* root) {
+        help(root);
+        return root;
+    }
+};
