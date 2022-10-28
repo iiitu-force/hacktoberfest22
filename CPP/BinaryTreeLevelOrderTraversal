@@ -1,0 +1,32 @@
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> v;
+   if (root==NULL)
+	{
+		return v;
+	}
+	queue<TreeNode*> pendingNodes;
+	pendingNodes.push(root);
+	while(pendingNodes.size()!=0){
+	TreeNode*front= pendingNodes.front();
+		pendingNodes.pop();
+		v[i].push_back(root->val);
+		if (front->left!=NULL)
+		{
+			v[i].push_back(front->left->val);
+			pendingNodes.push(front->left);
+
+		}
+		if (front->right!=NULL)
+		{
+			v[i].push_back(front->right->val);
+			pendingNodes.push(front->right);
+			
+		}
+
+	}
+	return v;
+	
+    }
+};
