@@ -1,0 +1,76 @@
+//count the inversion in a given array while sorting
+#include<iostream>
+using namespace std;
+long long  merge (int arr[],int l, int mid,int r){
+    long long inv =0;
+    int n1=mid-l+1;
+    int n2=r-mid;
+    int a[n1];
+    int b[n2]; //we are making two temporary array as we have to compare two values and then inputing the lower value
+    for(int i=0;i<n1;i++){
+        a[i]=arr[l+i];  //as our indexing start with leftmost value of original array
+    }
+    for(int i=0;i<n2;i++){
+        b[i]=arr[mid+1+i];  //as our indexing start with mid+1 value of original array
+    }
+    int i=0;
+    int j=0;
+    int k=l;//our indexinging will start with leftmost value
+    while(i<n1 && j<n2){
+        if(a[i]<b[j]){
+            arr[k]=a[i];
+            k++;
+            i++; //no inversion as a[i]<b[j]
+        }
+        else{
+            arr[k]=b[j];
+            inv = inv + n1-i;  //n1-i as a[i+1],a[i+2]... and so on are greater than b[j]   //major catch
+            k++;  
+            j++;  //inversion as a[i]>b[j]
+        }
+    }
+    while(i<n1){
+        arr[k]=a[i];
+        k++;
+        i++;
+    }
+    while(j<n2){
+        arr[k]=b[j];
+        k++;
+        j++;
+    }
+    return inv;
+}
+long long mergeSort(int arr[],int l,int r){
+    long long inv =0;
+    if(r>l){
+        int mid=(l+r)/2;
+        inv += mergeSort(arr,l,mid);  //inversion in left side 
+        inv += mergeSort(arr,mid+1,r);  //inversion in right side
+        inv += merge(arr,l,mid,r);  //inversion while merging 
+    }
+    return inv;
+}
+int main(){
+int n ;
+cout<<"Enter size of array ";
+cin>>n;
+int arr[n];
+cout<<"Enter values of array ";
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+//brut force approach
+int inv=0;
+for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+        if(arr[i]>arr[j]){
+            inv++;
+        }
+    }
+}
+cout<<inv<<endl;//time complexity of order o(n^2)
+//optimise approach
+cout<<(mergeSort(arr,0,n));
+return 0;
+}
