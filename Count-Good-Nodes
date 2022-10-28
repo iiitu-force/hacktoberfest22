@@ -1,0 +1,21 @@
+class Solution {
+public: 
+    int count=0;
+int tree(TreeNode* root,int maxi)
+{
+    if(root==NULL){
+        return 0;
+    }
+    if(root->val>=maxi){
+        maxi=root->val;
+        count++;
+    }
+    tree(root->left,maxi );
+    tree(root->right,maxi);
+    return 0;
+}
+    int goodNodes(TreeNode* root) {
+  tree(root,INT_MIN);
+        return count;
+    }
+};
