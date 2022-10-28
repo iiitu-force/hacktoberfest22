@@ -1,0 +1,46 @@
+//it is also ased on divide and conquer algorithm
+//choose any element (here it is pi) and place it to its correct position
+#include<iostream>
+using namespace std;
+void swap(int arr[], int l,int r){
+    int temp =arr[r];
+    arr[r]=arr[l];
+    arr[l]=temp;
+}
+int partition(int arr[], int l, int r){
+    int pivot = arr[r];
+    int i =l-1;
+    for(int j=l;j<r;j++){
+        if(arr[j]<pivot){
+            i++;
+            swap(arr,i,j);
+        }
+    }
+    swap(arr,i+1,r);
+    return (i+1);
+
+}
+void QuickSort(int arr[],int l, int r ){
+    if(l<r){
+        int pi= partition(arr,l,r);
+        QuickSort(arr,l,pi-1); //startting index is l
+        QuickSort(arr,pi+1,r); //starting index is pi+1
+    }
+}
+int main(){
+int n ;
+cout<<"Enter size of array ";
+cin>>n;
+int arr[n];
+cout<<"Enter values of array ";
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+QuickSort(arr,0,n-1);//pointer of arr should be send instead of size as per code
+cout<<"sorted array is "<<endl;
+for(int i=0;i<n;i++){
+    cout<<arr[i]<<" ";
+}
+//find time complexity of quich short NOTE: It depends on pivot we get if pivot is median then it is best case with time complexity of nlogn which is equal to megre sort and if pivot is largest then it is worst case with time complexity of n^2
+return 0;
+}
