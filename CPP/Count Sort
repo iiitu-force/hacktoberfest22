@@ -1,0 +1,42 @@
+//find tthe coiunt of every distinct element
+//calculate the position of each element in sorted array
+#include<iostream>
+#include<algorithm>
+using namespace std;
+void countSort(int arr[],int n){
+    int k=arr[0];
+    for(int i=0;i<n;i++){  //finding the max. value in array
+        k =max(k,arr[i]);
+    }
+    int count[k+1]={0};   //making count array of max. value to find frequency of all element of array
+    for(int i=0;i<n;i++){
+        count[arr[i]]++;
+    }
+    for(int i=1;i<=k;i++){   //finding the index of element 
+         count[i]=count[i] + count[i-1];
+    }
+    int output[n];
+    for(int i=n-1;i>=0;i--){
+        output[--count[arr[i]]]=arr[i]; //assigning vaues after sorting //firstly decrement the value of count arr and then assigning the correct index
+    }
+    for(int i=0;i<n;i++){
+        arr[i]=output[i];  //assigning the values of output array to count array
+    }
+}
+int main(){
+int n ;
+cout<<"Enter size of array ";
+cin>>n;
+int arr[n];
+cout<<"Enter values of array ";
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+
+countSort(arr,n);
+for(int i=0;i<n;i++){
+    cout<<arr[i]<<" ";
+}
+return 0;
+}
+//its time complexity is max(A,n);
